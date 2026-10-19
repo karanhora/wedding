@@ -1,0 +1,3447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Karan &amp; Shreya's Wedding Invitation | #ShubhKarYa</title>
+    
+    <!-- Open Graph / WhatsApp Preview Meta Tags -->
+    <meta property="og:title" content="Karan &amp; Shreya's Wedding Invitation | #ShubhKarYa">
+    <meta property="og:description" content="With the divine blessings of Lord Shiva &amp; Goddess Parvati, we invite you to celebrate our wedding ceremonies. Click to view your personalized royal invitation.">
+    <meta property="og:url" content="https://shubhkaryawedding.vercel.app/">
+    <meta property="og:type" content="website">
+    <!-- Google Fonts matching the luxury video reference -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Canvas Confetti Library for scratch & card opening reveal -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #12090b;
+            --bg-card-dark: #1a0e10;
+            --primary-maroon: #6e0d11;
+            --deep-wine: #48060a;
+            --royal-crimson: #8a1319;
+            --gold-primary: #d4af37;
+            --gold-light: #fae8a8;
+            --gold-dark: #a17c24;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #fff2b5 50%, #aa7a1e 100%);
+            --ivory-parchment: #faf5eb;
+            --ivory-card: #fffdf9;
+            --text-gold: #f5df9e;
+            --text-dark: #2c2523;
+            --text-muted: #8c7e7b;
+            --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.25);
+            --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            text-align: center;
+        }
+
+        /* Floating Flower Petals Canvas */
+        #petal-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* ====================================================
+           TOP ROYAL DIVINE HEADER (LORD GANESHA & SHIRDI SAI BABA JI)
+           ==================================================== */
+        .top-divine-header {
+            padding: 26px 15px 20px;
+            background: radial-gradient(circle at top, #2f1317 0%, var(--bg-dark) 85%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .divine-emblems-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(10px, 3.5vw, 32px);
+            max-width: 520px;
+            margin: 0 auto 10px;
+        }
+
+        .divine-deity-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            max-width: 145px;
+        }
+
+        .divine-medallion-frame {
+            width: clamp(70px, 18vw, 90px);
+            height: clamp(70px, 18vw, 90px);
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #fff2b5 0%, #d4af37 50%, #8a6512 100%);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 16px rgba(212, 175, 55, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .divine-medallion-frame:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 28px rgba(212, 175, 55, 0.55);
+        }
+
+        .divine-medallion-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .divine-deity-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.76em, 2.3vw, 0.95em);
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .divine-center-crest {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+
+        .divine-om-glow {
+            font-size: clamp(1.8em, 5.5vw, 2.4em);
+            color: var(--gold-primary);
+            line-height: 1;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+            animation: pulseOmGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseOmGlow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 18px rgba(255, 242, 181, 0.8)); }
+        }
+
+        .divine-sub-badge {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.68em, 2vw, 0.82em);
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            margin-top: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .divine-header-shloka {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.72em, 2.1vw, 0.85em);
+            letter-spacing: 2.5px;
+            color: rgba(255, 242, 181, 0.85);
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* FLOATING MUSIC CIRCLE BUTTON (MATCHING REFERENCE VIDEO) */
+        .floating-music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
+            border: 2px solid #fff2b5;
+            color: var(--deep-wine);
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .floating-music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-music-btn.playing {
+            animation: pulseGlow 1.8s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 0 25px rgba(255, 242, 181, 0.8); }
+        }
+
+        /* FLOATING HOST TOOLS PILL */
+        .floating-host-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: linear-gradient(135deg, var(--bg-card-dark) 0%, #2a1114 100%);
+            color: var(--gold-light);
+            border: 1.5px solid var(--gold-primary);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .floating-host-btn:hover {
+            background: var(--primary-maroon);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* When an invite is opened by a guest, hide the host invite generator */
+        body.guest-mode .floating-host-btn {
+            display: none !important;
+        }
+
+        body.guest-mode #custom-link-modal {
+            display: none !important;
+        }
+
+        /* ====================================================
+           1. WELCOME & ENVELOPE STAGE (AS IN VIDEO)
+           ==================================================== */
+        .welcome-hero-card {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 10px 20px 40px;
+            position: relative;
+        }
+
+        /* Personalized Welcome Box matching reference video */
+        .guest-greeting-box {
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 25px;
+            background: rgba(26, 14, 16, 0.7);
+            backdrop-filter: blur(8px);
+        }
+
+        .guest-welcome-heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4em, 5vw, 2.1em);
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .guest-welcome-heading span {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .tap-to-open-hint {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8em;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-top: 8px;
+            font-weight: 700;
+            animation: pulseHint 2s infinite;
+        }
+
+        @keyframes pulseHint {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+
+        /* Hanging Royal Envelope with Wax Seal */
+        .hanging-envelope-container {
+            position: relative;
+            width: 100%;
+            background: #1e0f11;
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.7), var(--shadow-glow);
+            padding: 15px 15px 30px;
+        }
+
+        /* Welcome Video at the top of the envelope */
+        .envelope-video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .welcome-video-tag {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+            margin: 0 auto;
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .welcome-video-tag::-webkit-media-controls,
+        .welcome-video-tag::-webkit-media-controls-enclosure,
+        .welcome-video-tag::-webkit-media-controls-play-button,
+        .welcome-video-tag::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none !important;
+            opacity: 0 !important;
+        }
+
+        /* The Gold Wax Seal Button */
+        .wax-seal-wrapper {
+            margin-top: 25px;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .wax-seal-btn {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #9e1a22, #5c070c);
+            border: 3.5px solid var(--gold-primary);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6), 0 0 24px rgba(212, 175, 55, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 6px;
+        }
+
+        .wax-seal-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.8), 0 0 32px rgba(255, 242, 181, 0.7);
+        }
+
+        .wax-seal-monogram {
+            font-family: 'Cormorant Garamond', 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.15em;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: none !important;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .open-card-cta-btn {
+            margin-top: 18px;
+            background: var(--gold-gradient);
+            color: var(--deep-wine);
+            border: none;
+            padding: 14px 34px;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.05em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .open-card-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* REVEALED PARCHMENT CARD (SLIDES OUT OF ENVELOPE LIKE IN VIDEO) */
+        .revealed-invitation-slip {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, transform 1s ease;
+            transform: translateY(40px);
+            margin-top: 0;
+        }
+
+        .hanging-envelope-container.opened .revealed-invitation-slip {
+            max-height: 2500px;
+            opacity: 1;
+            transform: translateY(0);
+            margin-top: 30px;
+        }
+
+        /* Royal Parchment Paper Styling (Matching Video Page 1) */
+        .parchment-sheet {
+            background: var(--ivory-parchment);
+            color: var(--text-dark);
+            border-radius: 12px;
+            padding: 45px 22px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            position: relative;
+            background-image: 
+                radial-gradient(var(--gold-light) 0.75px, transparent 0.75px),
+                radial-gradient(var(--gold-light) 0.75px, var(--ivory-parchment) 0.75px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+
+        .parchment-salutation {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4em, 5vw, 1.85em);
+            color: var(--primary-maroon);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .parchment-blessing-text {
+            font-size: clamp(1.1em, 3.5vw, 1.25em);
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 520px;
+            margin: 0 auto 20px;
+        }
+
+        .couple-title-royale {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8em, 6vw, 2.4em);
+            color: var(--deep-wine);
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 15px 0 5px;
+        }
+
+        .couple-and-ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2em;
+            color: var(--gold-dark);
+            margin: 2px 0;
+        }
+
+        .family-details-lines {
+            font-size: 1.05em;
+            color: #4a3f3d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .grandmothers-honor-box {
+            background: #ffffff;
+            border: 1px dashed var(--gold-primary);
+            border-radius: 10px;
+            padding: 14px;
+            margin: 20px auto;
+            max-width: 480px;
+            font-size: 1.05em;
+            color: var(--primary-maroon);
+            font-weight: 600;
+        }
+
+        .keep-scrolling-cue {
+            margin-top: 25px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85em;
+            letter-spacing: 3px;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* ====================================================
+           2. OUR STORY STORYBOARD SECTION (MATCHING VIDEO)
+           ==================================================== */
+        .story-section {
+            padding: 60px 20px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85em;
+            letter-spacing: 4px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .section-main-heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2em, 6.5vw, 2.7em);
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .story-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .story-polaroid-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px 14px 22px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            color: var(--text-dark);
+            text-align: left;
+            transition: transform 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .story-polaroid-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .story-card-img {
+            width: 100%;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            background: #fdfaf5;
+        }
+
+        .story-photo-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fdfaf5;
+        }
+
+        .story-memory-pill {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(20, 6, 9, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+            padding: 5px 13px;
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-size: 0.82em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.65);
+            z-index: 2;
+        }
+
+        .story-memory-pill .memory-name-text {
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .story-chapter-badge {
+            font-family: 'Cinzel', serif;
+            font-size: 0.78em;
+            letter-spacing: 2px;
+            color: var(--primary-maroon);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 14px;
+        }
+
+        .story-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35em;
+            color: var(--deep-wine);
+            font-weight: 700;
+            margin: 4px 0 6px;
+        }
+
+        .story-card-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15em;
+            color: #4a403d;
+            line-height: 1.6;
+        }
+
+        /* ====================================================
+           3. INTERACTIVE "SCRATCH TO REVEAL" DATE CARD
+           ==================================================== */
+        .scratch-date-section {
+            padding: 50px 20px;
+            background: radial-gradient(circle at center, #231215 0%, var(--bg-dark) 80%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .scratch-card-box {
+            background: var(--ivory-parchment);
+            color: var(--text-dark);
+            max-width: 480px;
+            margin: 25px auto 0;
+            padding: 35px 25px;
+            border-radius: 16px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .scratch-canvas-container {
+            position: relative;
+            width: 100%;
+            height: 170px;
+            margin: 20px auto 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Hidden Underneath the scratch canvas */
+        .revealed-date-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fff7dc 0%, #fef1c4 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .revealed-day-num {
+            font-family: 'Cinzel', serif;
+            font-size: 3.8em;
+            font-weight: 800;
+            color: var(--deep-wine);
+            line-height: 1;
+        }
+
+        .revealed-month-year {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15em;
+            letter-spacing: 3px;
+            color: var(--primary-maroon);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* The Scratch Surface Canvas */
+        #scratch-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 10;
+            touch-action: none;
+        }
+
+        .scratch-instruction {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        /* ====================================================
+           3.5 LIVE WEDDING COUNTDOWN TIMER
+           ==================================================== */
+        .wedding-countdown-wrapper {
+            max-width: 500px;
+            margin: 32px auto 5px;
+            background: rgba(26, 12, 16, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 16px;
+            padding: 24px 18px 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), inset 0 0 25px rgba(212, 175, 55, 0.08);
+            text-align: center;
+        }
+
+        .countdown-heading-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.88em;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .countdown-units-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .countdown-unit-card {
+            background: linear-gradient(145deg, rgba(38, 16, 21, 0.9) 0%, rgba(18, 6, 9, 0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 10px;
+            padding: 14px 6px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .countdown-unit-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--gold-light);
+        }
+
+        .countdown-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8em, 6vw, 2.5em);
+            font-weight: 800;
+            color: var(--gold-light);
+            line-height: 1.1;
+            text-shadow: 0 0 12px rgba(255, 223, 128, 0.35);
+        }
+
+        .countdown-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7em;
+            letter-spacing: 1.5px;
+            color: #dcd0ce;
+            font-weight: 600;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .countdown-wedding-subtext {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.7em;
+            color: var(--gold-primary);
+            margin-top: 6px;
+        }
+
+        /* ====================================================
+           4. WEDDING FUNCTIONS (MATCHING USER SCREENSHOT EXACTLY)
+           ==================================================== */
+        .functions-section {
+            background: #fffdf5;
+            color: var(--text-dark);
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+            border-top: 2px solid var(--gold-primary);
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        .functions-headline {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-maroon);
+            font-size: clamp(2.2em, 6.5vw, 3.2em);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .functions-subhead {
+            font-size: clamp(1.15em, 3.5vw, 1.35em);
+            color: #6b5e5a;
+            font-style: italic;
+            margin-bottom: 45px;
+        }
+
+        .functions-grid-three {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .functions-grid-three.single-event {
+            max-width: 480px;
+            margin: 0 auto;
+            grid-template-columns: 1fr;
+        }
+
+        .functions-grid-three.two-events {
+            max-width: 840px;
+            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        }
+
+        .wedding-function-card {
+            background: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 40px 24px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        /* Gold gradient top bar as in screenshot */
+        .wedding-function-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background: var(--gold-gradient);
+            border-top-left-radius: 11px;
+            border-top-right-radius: 11px;
+        }
+
+        .wedding-function-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(110, 13, 17, 0.12);
+        }
+
+        .function-top-icon {
+            font-size: 2.6em;
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+
+        .function-card-heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4em, 4vw, 1.75em);
+            color: var(--primary-maroon);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
+
+        /* Pill boxes matching screenshot */
+        .function-detail-pill {
+            background: #fbf7ec;
+            border: 1px solid #ebd9ab;
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin: 10px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #3b2c28;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .function-venue-block {
+            margin: 25px 0 20px;
+            padding-top: 18px;
+            border-top: 1px dashed #ebd9ab;
+        }
+
+        .function-venue-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--primary-maroon);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .function-venue-sub {
+            color: #6b5e5a;
+            font-size: 1.05em;
+            margin-top: 5px;
+        }
+
+        /* Two buttons at bottom matching screenshot */
+        .function-action-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-view-map {
+            flex: 1;
+            background: #fbf7ec;
+            color: var(--primary-maroon);
+            border: 1px solid #d4af37;
+            border-radius: 6px;
+            padding: 12px 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88em;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-view-map:hover {
+            background: #f3e5be;
+            color: #48060a;
+        }
+
+        .btn-add-cal {
+            flex: 1;
+            background: #48060a;
+            color: #ffffff;
+            border: 1px solid #48060a;
+            border-radius: 6px;
+            padding: 12px 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88em;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-add-cal:hover {
+            background: #6e0d11;
+            box-shadow: 0 4px 12px rgba(72, 6, 10, 0.3);
+        }
+
+        /* ====================================================
+           5. "PLAN YOUR EVENING" ACTION HUB
+           ==================================================== */
+        .plan-evening-section {
+            padding: 60px 20px;
+            background: #180c0e;
+        }
+
+        .action-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            max-width: 720px;
+            margin: 25px auto 0;
+        }
+
+        .action-tile-card {
+            background: var(--ivory-parchment);
+            color: var(--text-dark);
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 24px 18px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .action-tile-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .action-icon {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+        }
+
+        .calendar-custom-icon {
+            display: inline-block;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
+            transition: transform 0.25s ease;
+        }
+
+        .action-tile-card:hover .calendar-custom-icon {
+            transform: scale(1.08);
+        }
+
+        .action-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            color: var(--deep-wine);
+            font-weight: 700;
+        }
+
+        .action-sub {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ====================================================
+           6. "SEND A WISH" & RSVP SECTION
+           ==================================================== */
+        .wishes-rsvp-section {
+            padding: 65px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wishes-form-card {
+            background: var(--ivory-parchment);
+            color: var(--text-dark);
+            border-radius: 16px;
+            padding: 35px 25px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+
+        .form-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--deep-wine);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .form-input-field {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #d4c5b6;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95em;
+            background: #ffffff;
+            margin-bottom: 18px;
+        }
+
+        .send-wishes-btn {
+            width: 100%;
+            background: var(--primary-maroon);
+            color: #ffffff;
+            border: 2px solid var(--gold-primary);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.05em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-wishes-btn:hover {
+            background: var(--royal-crimson);
+            box-shadow: 0 6px 20px rgba(110, 13, 17, 0.4);
+        }
+
+        /* Dual WhatsApp Buttons for both numbers */
+        .dual-wa-strip {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #d4c5b6;
+        }
+
+        .wa-contact-btn {
+            background: #25D366;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88em;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* ====================================================
+           7. FAMILY CONTACTS & FOOTER (BIGGER FONT SIZES)
+           ==================================================== */
+        .contacts-summary-box {
+            padding: 40px 20px;
+            background: #14080a;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .contacts-grid-two-sides {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 820px;
+            margin: 20px auto 0;
+            text-align: center;
+        }
+
+        .contact-col-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .contact-col-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.15em;
+            margin-bottom: 12px;
+        }
+
+        .contact-row-item {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .contact-row-item a {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--bg-dark);
+            padding: 45px 20px 35px;
+            border-top: 2px solid var(--gold-primary);
+            text-align: center;
+        }
+
+        .footer-prominent-heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4em, 5vw, 2.2em);
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .footer-celebration-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.3em, 8vw, 3.6em);
+            color: var(--gold-primary);
+            margin: 8px 0 12px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* ====================================================
+           CAPTURED MOMENTS PHOTO GALLERY & LIGHTBOX
+           ==================================================== */
+        .gallery-section {
+            padding: 60px 20px;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .photo-gallery-masonry {
+            column-count: 2;
+            column-gap: 14px;
+            margin: 25px auto 0;
+        }
+
+        @media (max-width: 480px) {
+            .photo-gallery-masonry {
+                column-count: 2;
+                column-gap: 10px;
+            }
+        }
+
+        .photo-gallery-item {
+            break-inside: avoid;
+            margin-bottom: 14px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            background: #1e0f11;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .photo-gallery-item:hover {
+            transform: translateY(-3px) scale(1.02);
+            border-color: var(--gold-light);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.35);
+        }
+
+        .photo-gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        /* Lightbox Full-Screen Modal */
+        .image-lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.94);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .image-lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-close-btn {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 38px;
+            color: var(--gold-primary);
+            cursor: pointer;
+            z-index: 10001;
+            line-height: 1;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .lightbox-close-btn:hover {
+            transform: scale(1.15);
+            color: #ffffff;
+        }
+
+        .lightbox-content-box {
+            max-width: 92vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content-box img {
+            max-width: 100%;
+            max-height: 84vh;
+            border-radius: 8px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.85);
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            font-size: 0.95em;
+            letter-spacing: 1.5px;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        /* ====================================================
+           MODAL FOR CREATING CUSTOM GUEST LINKS
+           ==================================================== */
+        .host-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            backdrop-filter: blur(6px);
+        }
+
+        .host-modal.active {
+            display: flex;
+        }
+
+        .host-modal-card {
+            background: #ffffff;
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            max-width: 540px;
+            width: 100%;
+            padding: 26px 22px;
+            color: var(--text-dark);
+            text-align: left;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .host-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.8em;
+            color: var(--deep-wine);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .side-tabs-row {
+            display: flex;
+            gap: 8px;
+            margin: 12px 0 16px;
+        }
+
+        .side-tab-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-primary);
+            background: #fbf5ec;
+            color: var(--deep-wine);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .side-tab-btn.active {
+            background: var(--deep-wine);
+            color: var(--gold-light);
+            border-color: var(--deep-wine);
+        }
+
+        .event-selection-row {
+            display: flex;
+            gap: 8px;
+            margin: 6px 0 14px;
+        }
+
+        .event-tab-btn {
+            flex: 1;
+            padding: 10px 8px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-primary);
+            background: #fbf5ec;
+            color: var(--deep-wine);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .event-tab-btn:hover {
+            background: #fdfaf5;
+        }
+
+        .event-tab-btn.active {
+            background: var(--deep-wine);
+            color: var(--gold-light);
+            border-color: var(--deep-wine);
+            box-shadow: 0 4px 12px rgba(72, 6, 10, 0.25);
+        }
+
+        .wa-message-preview-box {
+            background: #f4fbf6;
+            border: 1.5px solid #25D366;
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 0.86em;
+            line-height: 1.6;
+            color: #1a3320;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 8px 0 16px;
+            max-height: 190px;
+            overflow-y: auto;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        .wa-share-primary-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.02em;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .wa-share-primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .link-output-box {
+            background: #fbf5ec;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.82em;
+            word-break: break-all;
+            margin: 6px 0 14px;
+            border: 1px dashed var(--gold-primary);
+            color: var(--deep-wine);
+        }
+
+        /* ====================================================
+           CINEMATIC ROYAL THEATER CURTAIN REVEAL OVERLAY
+           ==================================================== */
+        .curtain-reveal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            width: 100dvw;
+            height: 100vh;
+            height: 100dvh;
+            background: radial-gradient(circle at center, rgba(30, 8, 12, 0.96) 0%, rgba(10, 2, 4, 0.99) 100%);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .curtain-reveal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .curtain-theater-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            gap: 10px;
+        }
+        .curtain-video-frame {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.45);
+            border: 2px solid var(--gold-primary);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .curtain-clip-video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 16px;
+            background: #000;
+        }
+        .skip-curtain-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 25;
+            background: rgba(26, 6, 10, 0.88);
+            color: var(--gold-light);
+            border: 1px solid var(--gold-primary);
+            border-radius: 25px;
+            padding: 7px 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.82em;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .skip-curtain-btn:hover {
+            background: var(--primary-maroon);
+            color: #ffffff;
+            transform: scale(1.05);
+            border-color: #fff2b5;
+        }
+        .curtain-tap-hint {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78em;
+            color: rgba(255, 242, 181, 0.85);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            user-select: none;
+            -webkit-user-select: none;
+            padding: 4px 10px;
+        }
+
+        /* Desktop Theater Sizing */
+        @media (min-width: 769px) {
+            .curtain-theater-stage {
+                max-width: 860px;
+            }
+            .curtain-video-frame {
+                width: min(88vw, 820px, calc(min(76vh, 76dvh, 520px) * 16 / 9));
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+        }
+
+        /* Mobile Reel Sizing - 100% adaptive with zero overflow */
+        @media (max-width: 768px) {
+            .curtain-reveal-overlay {
+                padding: 10px 8px;
+            }
+            .curtain-theater-stage {
+                width: 100%;
+                gap: 8px;
+            }
+            .curtain-video-frame {
+                width: min(88vw, 420px, calc(min(74vh, 74dvh, 660px) * 9 / 16));
+                height: auto;
+                aspect-ratio: 9 / 16;
+                border-radius: 14px;
+            }
+            .curtain-clip-video {
+                border-radius: 12px;
+            }
+            .skip-curtain-btn {
+                top: 10px;
+                right: 10px;
+                padding: 6px 13px;
+                font-size: 0.78em;
+            }
+            .curtain-tap-hint {
+                font-size: 0.72em;
+                letter-spacing: 1.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Canvas for Golden Confetti & Petals -->
+    <canvas id="petal-canvas"></canvas>
+
+    <!-- ====================================================
+         TOP ROYAL DIVINE HEADER: LORD GANESHA & SHIRDI SAI BABA JI
+         ==================================================== -->
+    <header class="top-divine-header">
+        <div class="divine-emblems-row">
+            <!-- Lord Ganesha -->
+            <div class="divine-deity-card">
+                <div class="divine-medallion-frame">
+                    <img src="ganesha_emblem.jpg" alt="Lord Ganesha" class="divine-medallion-img">
+                </div>
+                <div class="divine-deity-name">॥ श्री गणेशाय नमः ॥</div>
+            </div>
+
+            <!-- Sacred Center Kalash / Om -->
+            <div class="divine-center-crest">
+                <div class="divine-om-glow">ॐ</div>
+                <div class="divine-sub-badge">शुभ विवाह</div>
+            </div>
+
+            <!-- Shirdi Sai Baba Ji -->
+            <div class="divine-deity-card">
+                <div class="divine-medallion-frame">
+                    <img src="sai_baba_emblem.jpg" alt="Shirdi Sai Baba Ji" class="divine-medallion-img">
+                </div>
+                <div class="divine-deity-name">॥ ॐ साईं राम ॥</div>
+            </div>
+        </div>
+
+        <div class="divine-header-shloka">
+            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ • श्रद्धा और सबुरी
+        </div>
+    </header>
+
+    <!-- FLOATING MUSIC BUTTON (Playing Peer Vi Tu) -->
+    <button class="floating-music-btn" id="music-circle-btn" title="Play / Pause Song: Peer Vi Tu">
+        🎵
+    </button>
+
+    <!-- FLOATING GUEST LINK CREATOR FOR HOSTS (Hidden when guest opens personalized invite) -->
+    <button class="floating-host-btn" id="open-link-modal-btn" title="Share WhatsApp e-Invite">
+        <span>💌</span> Share Invite on WhatsApp
+    </button>
+
+    <!-- HTML5 Audio Player (Peer Vi Tu Song Chunks) -->
+    <audio id="wedding-audio-player" loop preload="auto" autoplay playsinline>
+        <source src="wedding-song-chorus.mp3" type="audio/mpeg">
+        <source src="wedding-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ====================================================
+         CINEMATIC ROYAL THEATER CURTAIN REVEAL OVERLAY
+         ==================================================== -->
+    <div id="curtain-reveal-overlay" class="curtain-reveal-overlay" style="display: none;">
+        <div class="curtain-theater-stage">
+            <div class="curtain-video-frame">
+                <button class="skip-curtain-btn" id="skip-curtain-clip-btn" title="Skip to Invitation">
+                    Skip ✕
+                </button>
+                <video id="curtain-clip-player" 
+                       class="curtain-clip-video" 
+                       playsinline 
+                       webkit-playsinline 
+                       preload="auto"
+                       poster="curtain_v_couple.jpg">
+                    <source src="curtain-reveal-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+                    <source src="curtain-reveal.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="curtain-tap-hint" id="curtain-hint-btn">Tap anywhere to reveal invitation ⌄</div>
+        </div>
+    </div>
+
+    <!-- ====================================================
+         SECTION 1: WELCOME & ROYAL HANGING ENVELOPE
+         ==================================================== -->
+    <section class="welcome-hero-card" id="hero-section">
+        
+        <!-- Personalized Welcome Box matching reference video -->
+        <div class="guest-greeting-box">
+            <h2 class="guest-welcome-heading">
+                Welcome, <span id="banner-guest-name">Valued Guests</span>
+            </h2>
+            <div class="tap-to-open-hint">TAP WAX SEAL BELOW TO OPEN INVITE ⌄</div>
+        </div>
+
+        <!-- Hanging Royal Envelope -->
+        <div class="hanging-envelope-container" id="envelope-box">
+            
+            <!-- Video at top of envelope (Updated HD Welcome Video) -->
+            <div class="envelope-video-wrapper">
+                <video id="welcome-video" 
+                       class="welcome-video-tag" 
+                       autoplay 
+                       loop 
+                       muted 
+                       playsinline 
+                       webkit-playsinline 
+                       preload="auto"
+                       tabindex="-1"
+                       disablepictureinpicture
+                       disableremoteplayback
+                       poster="welcome_video_poster.jpg">
+                    <source src="welcome-video.mp4" type="video/mp4">
+                    <source src="Welcome%20Video.mp4" type="video/mp4">
+                    <source src="Welcome Video.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- Wax Seal Button -->
+            <div class="wax-seal-wrapper" id="wax-seal-trigger">
+                <div class="wax-seal-btn" title="Tap to Break Seal & Open Invitation">
+                    <span class="wax-seal-monogram">#ShubhKarYa</span>
+                </div>
+            </div>
+
+            <div>
+                <button class="open-card-cta-btn" id="open-envelope-btn">
+                    <span>💌</span> Open Invitation
+                </button>
+            </div>
+
+            <!-- ====================================================
+                 REVEALED INVITATION CARD (PAGE 1)
+                 ==================================================== -->
+            <div class="revealed-invitation-slip" id="revealed-invitation">
+                <div class="parchment-sheet">
+                    <h3 class="parchment-salutation">
+                        Respected <span id="card-salutation-name">Family &amp; Friends</span>
+                    </h3>
+                    
+                    <p class="parchment-blessing-text">
+                        With the divine blessings of Lord Shiva &amp; Goddess Parvati, 
+                        and our respected elders, we joyfully request your gracious presence 
+                        at the wedding celebrations of
+                    </p>
+
+                    <div id="parchment-couple-details">
+                        <div class="couple-title-royale">Karan Hora</div>
+                        <div class="family-details-lines">
+                            Son of <strong>Mrs. Manju Hora &amp; Mr. Manoj Hora</strong><br>
+                            Brother of <strong>Manya Hora</strong>
+                        </div>
+
+                        <div class="couple-and-ampersand">&amp;</div>
+
+                        <div class="couple-title-royale">Shreya Gulati</div>
+                        <div class="family-details-lines">
+                            Daughter of <strong>Mrs. Indu Gulati &amp; Mr. Ajay Gulati</strong><br>
+                            Sister of <strong>Sanyam Gulati</strong>
+                        </div>
+                    </div>
+
+                    <!-- Grandmothers' Blessings -->
+                    <div class="grandmothers-honor-box" id="grandmothers-honor-box">
+                        With divine blessings of our beloved Grandmothers:<br>
+                        <strong>Smt. Janki Devi Hora &amp; Smt. Darshan Gulati</strong>
+                    </div>
+
+                    <div class="keep-scrolling-cue">
+                        KEEP SCROLLING <span>⌄</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 2: SHIV JI & PARVATI JI SACRED UNION
+         ==================================================== -->
+    <section class="welcome-hero-card" style="padding-top: 10px;">
+        <div style="background: rgba(26, 14, 16, 0.7); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 14px; padding: 25px 20px;">
+            <div style="font-size: 2em; margin-bottom: 8px;">🔱 🪷 🔱</div>
+            <h3 style="font-family: 'Cinzel', serif; font-size: 1.4em; color: var(--gold-light); margin-bottom: 12px;">
+                The Sacred Union: Like Shiv &amp; Parvati
+            </h3>
+            <div style="font-family: 'Georgia', serif; font-style: italic; color: #fff2b5; font-size: 1.1em; line-height: 1.7; margin-bottom: 12px;">
+                ॥ कर्पूरगौरं करुणावतारं संसारसारम् भुजगेन्द्रहारम् ॥<br>
+                ॥ सदावसन्तं हृदयारविन्दे भवं भवानीसहितं नमामि ॥
+            </div>
+            <p id="sacred-union-blessing-text" style="font-size: 1.1em; color: #dcd0ce; line-height: 1.7;">
+                As Shakti completes Shiva, two souls unite in lifelong harmony, friendship, and divine grace. 
+                With Mahadev and Mata Gauri's blessings, Karan &amp; Shreya step into their holy union.
+            </p>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 3: INTERACTIVE "SCRATCH TO REVEAL" DATE CARD
+         ==================================================== -->
+    <section class="scratch-date-section">
+        <div class="section-tag">SAVE THE DATE</div>
+        <h2 class="section-main-heading" style="margin-bottom: 10px;">And now comes the day of Wedding</h2>
+        
+        <div class="scratch-card-box">
+            <div style="font-family: 'Cinzel', serif; font-size: 1.1em; color: var(--primary-maroon); font-weight: 700;">
+                WEDDING CEREMONY
+            </div>
+
+            <!-- The Scratch Canvas Container -->
+            <div class="scratch-canvas-container">
+                <!-- Underneath content (Revealed on scratch) -->
+                <div class="revealed-date-content">
+                    <div class="revealed-day-num">5</div>
+                    <div class="revealed-month-year">DECEMBER 2026</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.85em; font-weight: 600; color: #554442;">
+                        SATURDAY • 6:00 PM ONWARDS
+                    </div>
+                </div>
+                
+                <!-- Scratch Surface Canvas -->
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+
+            <p class="scratch-instruction" id="scratch-status-text">
+                🪙 Rub / Scratch the gold coin above to reveal the date!
+            </p>
+        </div>
+
+        <!-- Live Wedding Countdown Timer -->
+        <div class="wedding-countdown-wrapper" id="wedding-countdown">
+            <div class="countdown-heading-label">
+                <span>⏳</span> COUNTDOWN TO THE WEDDING <span>✨</span>
+            </div>
+            <div class="countdown-units-grid">
+                <div class="countdown-unit-card">
+                    <span class="countdown-number" id="countdown-days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-unit-card">
+                    <span class="countdown-number" id="countdown-hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-unit-card">
+                    <span class="countdown-number" id="countdown-mins">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-unit-card">
+                    <span class="countdown-number" id="countdown-secs">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            <div class="countdown-wedding-subtext" id="countdown-wedding-subtext">Until Karan &amp; Shreya tie the knot! 💍</div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 4: WEDDING FUNCTIONS (MATCHING USER SCREENSHOT EXACTLY)
+         ==================================================== -->
+    <section class="functions-section" id="functions-itinerary">
+        <h2 class="functions-headline" id="functions-headline-text">WEDDING FUNCTIONS</h2>
+        <p class="functions-subhead" id="functions-subhead-text">Join us in celebrating each special milestone of our joyous journey</p>
+
+        <div class="functions-grid-three" id="functions-grid-container">
+            
+            <!-- Card 1: Sagan & Cocktail -->
+            <div class="wedding-function-card" id="card-sagan">
+                <div>
+                    <div class="function-top-icon">🍸</div>
+                    <h3 class="function-card-heading">SAGAN &amp; COCKTAIL</h3>
+                    
+                    <div class="function-detail-pill">
+                        <span>📅</span> 4th December 2026, Friday
+                    </div>
+                    <div class="function-detail-pill">
+                        <span>⏰</span> 6:00 PM Onwards
+                    </div>
+
+                    <div class="function-venue-block">
+                        <div class="function-venue-title">IMPERIAL CLUB OF INDIA</div>
+                        <div class="function-venue-sub">Vasant Kunj, New Delhi</div>
+                    </div>
+                </div>
+
+                <div class="function-action-row">
+                    <a href="https://maps.google.com/?q=Imperial+Club+Of+India+Vasant+Kunj+Delhi" 
+                       target="_blank" class="btn-view-map">
+                        <span>📍</span> View Map
+                    </a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Karan+%26+Shreya+-+Sagan+%26+Cocktail&dates=20261204T123000Z/20261204T173000Z&details=Celebrate+the+Sagan+%26+Cocktail+of+Karan+and+Shreya&location=Imperial+Club+Of+India,+Vasant+Kunj,+Delhi" 
+                       target="_blank" class="btn-add-cal" id="cal-link-sagan">
+                        <span>📅</span> Add to Cal
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Haldi Ceremony -->
+            <div class="wedding-function-card" id="card-haldi">
+                <div>
+                    <div class="function-top-icon">🌼</div>
+                    <h3 class="function-card-heading">HALDI CEREMONY</h3>
+                    
+                    <div class="function-detail-pill">
+                        <span>📅</span> 5th December 2026, Saturday
+                    </div>
+                    <div class="function-detail-pill">
+                        <span>⏰</span> 11:00 AM Onwards
+                    </div>
+
+                    <div class="function-venue-block">
+                        <div class="function-venue-title">TERRACE AT GREEN LOUNGE FUSION</div>
+                        <div class="function-venue-sub">Shakti Nagar, GT Karnal Road, Delhi</div>
+                    </div>
+                </div>
+
+                <div class="function-action-row">
+                    <a href="https://maps.google.com/?q=Green+Lounge+Fusion+Terrace+Shakti+Nagar+GT+Karnal+Road+Delhi" 
+                       target="_blank" class="btn-view-map">
+                        <span>📍</span> View Map
+                    </a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Karan+%26+Shreya+-+Haldi+Ceremony&dates=20261205T053000Z/20261205T093000Z&details=Celebrate+the+Haldi+Ceremony+of+Karan+and+Shreya&location=Terrace+at+Green+Lounge+Fusion,+Shakti+Nagar,+GT+Karnal+Road,+Delhi" 
+                       target="_blank" class="btn-add-cal" id="cal-link-haldi">
+                        <span>📅</span> Add to Cal
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Baraat & Wedding Vows -->
+            <div class="wedding-function-card" id="card-shaadi">
+                <div>
+                    <div class="function-top-icon">🪕</div>
+                    <h3 class="function-card-heading">BARAAT &amp; WEDDING VOWS</h3>
+                    
+                    <div class="function-detail-pill" style="border-color: #d4af37; background: #fffaf0;">
+                        <span>📅</span> <strong>5th December 2026, Saturday</strong>
+                    </div>
+                    <div class="function-detail-pill">
+                        <span>⏰</span> 6:00 PM Onwards
+                    </div>
+
+                    <div class="function-venue-block">
+                        <div class="function-venue-title">SEVEN SEAS</div>
+                        <div class="function-venue-sub">Britannia Chowk, Lawrence Road, Delhi</div>
+                    </div>
+                </div>
+
+                <div class="function-action-row">
+                    <a href="https://maps.google.com/?q=Seven+Seas+Britannia+Chowk+Lawrence+Road+Delhi" 
+                       target="_blank" class="btn-view-map">
+                        <span>📍</span> View Map
+                    </a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Karan+%26+Shreya+-+Baraat+and+Wedding+Vows&dates=20261205T123000Z/20261205T183000Z&details=Celebrate+the+Baraat+and+Wedding+Ceremony+of+Karan+and+Shreya&location=Seven+Seas,+Britannia+Chowk,+Lawrence+Road,+Delhi" 
+                       target="_blank" class="btn-add-cal" id="cal-link-shaadi">
+                        <span>📅</span> Add to Cal
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ====================================================
+         SECTION 5: "SEND A WISH" & RSVP SECTION
+         ==================================================== -->
+    <section class="wishes-rsvp-section">
+        <div class="section-tag">BLESSINGS &amp; RSVP</div>
+        <h2 class="section-main-heading">Send a Wish</h2>
+
+        <div class="wishes-form-card">
+            <form name="wedding-rsvp" method="POST" id="wedding-wishes-form" action="#" onsubmit="event.preventDefault();">
+                <input type="hidden" name="form-name" value="wedding-rsvp">
+                
+                <label class="form-label" for="wishes-name">Your Name / Family Name</label>
+                <input type="text" id="wishes-name" name="name" class="form-input-field" placeholder="" required>
+
+                <label class="form-label" for="wishes-side">To Which Family</label>
+                <select id="wishes-side" name="side" class="form-input-field">
+                    <option value="Both Families" selected>To Both Families ✨</option>
+                    <option value="Hora Family">To Karan &amp; Hora Family (Groom's Side)</option>
+                    <option value="Gulati Family">To Shreya &amp; Gulati Family (Bride's Side)</option>
+                </select>
+
+                <label class="form-label" for="wishes-attendance">Will You Be Attending?</label>
+                <select id="wishes-attendance" name="attendance" class="form-input-field" required>
+                    <option value="Attending All Events">Joyfully Accepts - All Events 🎊</option>
+                    <option value="Attending Some Events">Joyfully Accepts - Some Events 🎉</option>
+                    <option value="Regretfully Declines">Regretfully Declines with Best Wishes ❤️</option>
+                </select>
+
+                <label class="form-label" for="wishes-text">Write your heartfelt wish for the couple...</label>
+                <textarea id="wishes-text" name="message" class="form-input-field" rows="3" placeholder="Wishing you a lifetime of love and joy..."></textarea>
+
+                <button type="submit" class="send-wishes-btn">
+                    SEND YOUR WISHES →
+                </button>
+
+                <!-- Dual WhatsApp Contacts for RSVP -->
+                <div class="dual-wa-strip" id="dual-wa-strip-container">
+                    <div style="font-size: 0.85em; font-family: 'Cinzel', serif; color: var(--deep-wine); font-weight: 700; text-align: center;">
+                        Or Confirm RSVP directly on WhatsApp:
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=919999919945&text=Namaste!%20We%20joyfully%20accept%20the%20wedding%20invitation%20for%20Karan%20%26%20Shreya." 
+                       target="_blank" class="wa-contact-btn" id="wa-direct-karan">
+                        <span>💬</span> RSVP to Groom
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=918860744432&text=Namaste!%20We%20joyfully%20accept%20the%20wedding%20invitation%20for%20Karan%20%26%20Shreya." 
+                       target="_blank" class="wa-contact-btn" style="background: #128C7E;" id="wa-direct-gulati">
+                        <span>💬</span> RSVP to Bride
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 6: OUR STORY (STORYBOARD & MEMORIES)
+         ==================================================== -->
+    <section class="story-section">
+        <div class="section-tag">CHAPTERS OF LOVE</div>
+        <h2 class="section-main-heading">Our Story</h2>
+
+        <div class="story-cards-stack" id="story-cards-container">
+            
+            <!-- Chapter 1: Groom To Be -->
+            <div class="story-polaroid-card" id="story-card-groom" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Groom%20To%20Be.jpeg" alt="Memory: Groom To Be" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Groom To Be</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">01 • THE DASHING GROOM</div>
+                <h3 class="story-card-title">Groom To Be</h3>
+                <p class="story-card-desc">
+                    Karan full of joy, ready to begin the most wonderful adventure of a lifetime.
+                </p>
+            </div>
+
+            <!-- Chapter 2: Bride To Be -->
+            <div class="story-polaroid-card" id="story-card-bride" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Bride%20To%20Be.jpg" alt="Memory: Bride To Be" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Bride To Be</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">02 • THE RADIANT BRIDE</div>
+                <h3 class="story-card-title">Bride To Be</h3>
+                <p class="story-card-desc">
+                    Shreya glowing with grace, beauty, and excitement, ready to step into this magical new chapter.
+                </p>
+            </div>
+
+            <!-- Chapter 3: The First Yes -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="The%20first%20Yess.jpg" alt="Memory: The First Yes" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">The First Yes</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">03 • THE BEGINNING</div>
+                <h3 class="story-card-title">The First Yes</h3>
+                <p class="story-card-desc">
+                    The magical moment when two hearts said yes to forever, setting in motion our beautiful lifelong story.
+                </p>
+            </div>
+
+            <!-- Chapter 4: Officially Rokafied -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Officially%20Rokafied.jpg" alt="Memory: Officially Rokafied" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Officially Rokafied</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">04 • THE ROKA CEREMONY</div>
+                <h3 class="story-card-title">Officially Rokafied</h3>
+                <p class="story-card-desc">
+                    Tilak, traditional blessings, and radiant smiles as our two loving families officially united into one.
+                </p>
+            </div>
+
+            <!-- Chapter 5: Sai Sandhya -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Sai%20Sandhya.jpg" alt="Memory: Sai Sandhya" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Sai Sandhya</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">05 • DIVINE GRACE</div>
+                <h3 class="story-card-title">Sai Sandhya</h3>
+                <p class="story-card-desc">
+                    Surrounded by sweet devotion, flower petals, and prayers for Shirdi Sai Baba Ji's eternal blessings on our union.
+                </p>
+            </div>
+
+            <!-- Chapter 6: Blessings at Gurudwara -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Blessings%20at%20Gurudwara.jpg" alt="Memory: Blessings at Gurudwara" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Blessings at Gurudwara</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">06 • SACRED PRAYERS</div>
+                <h3 class="story-card-title">Blessings at Gurudwara</h3>
+                <p class="story-card-desc">
+                    Standing in heartfelt gratitude before Waheguru, seeking peace, harmony, and eternal grace for our new journey.
+                </p>
+            </div>
+
+            <!-- Chapter 7: Always Laughing Together -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Always%20laughing%20together%20together.jpg" alt="Memory: Always laughing together together" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Always Laughing Together</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">07 • PURE HAPPINESS</div>
+                <h3 class="story-card-title">Always Laughing Together</h3>
+                <p class="story-card-desc">
+                    From quiet chuckles to unstoppable laughter—our favorite moments are always the ones shared together.
+                </p>
+            </div>
+
+            <!-- Memories: Sweet Moments -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Memories%201%20.jpg" alt="Memory: Sweet Moments" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Memories</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">MEMORIES • SWEET MOMENTS</div>
+                <h3 class="story-card-title">Memories</h3>
+                <p class="story-card-desc">
+                    Cherished memories of warmth, companionship, and smiles that make every day special.
+                </p>
+            </div>
+
+            <!-- Memories: Evenings to Remember -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Memories%202.jpg" alt="Memory: Evenings to Remember" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Memories</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">MEMORIES • EVENINGS TO REMEMBER</div>
+                <h3 class="story-card-title">Memories</h3>
+                <p class="story-card-desc">
+                    Dressed up and celebrating our bond, walking hand in hand into a lifetime of shared dreams.
+                </p>
+            </div>
+
+            <!-- Memories: Endless Adventures -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Memories%203.jpg" alt="Memory: Endless Adventures" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Memories</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">MEMORIES • ENDLESS ADVENTURES</div>
+                <h3 class="story-card-title">Memories</h3>
+                <p class="story-card-desc">
+                    Every conversation, trip, and ordinary moment becomes extraordinary when we are together.
+                </p>
+            </div>
+
+            <!-- Memories: Timeless Bond -->
+            <div class="story-polaroid-card" onclick="openLightboxFromCard(this)" title="Tap to view full photo">
+                <div class="story-photo-wrapper">
+                    <img src="Memories%204.jpg" alt="Memory: Timeless Bond" class="story-card-img" loading="lazy">
+                    <div class="story-memory-pill">
+                        <span>📸</span>
+                        <span class="memory-name-text">Memories</span>
+                    </div>
+                </div>
+                <div class="story-chapter-badge">MEMORIES • TIMELESS BOND</div>
+                <h3 class="story-card-title">Memories</h3>
+                <p class="story-card-desc">
+                    Cherished celebrations and timeless smiles, creating unforgettable memories on our journey to forever.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 7: FAMILY CONTACTS (ORGANIZED BY SIDE)
+         ==================================================== -->
+    <section class="contacts-summary-box">
+        <div class="section-tag">REACH OUT TO US</div>
+        <h3 style="font-family: 'Cinzel', serif; font-size: 1.6em; color: var(--gold-light);">Family Contacts</h3>
+
+        <div class="contacts-grid-two-sides" id="contacts-grid-container">
+            <!-- Hora Family -->
+            <div class="contact-col-card" id="contact-hora-col">
+                <h4>Hora Family (Groom's Side)</h4>
+                <div class="contact-row-item">
+                    Mr. Manoj Hora: <a href="tel:+919354628302">+91 9354628302</a>
+                </div>
+                <div class="contact-row-item">
+                    Mrs. Manju Hora: <a href="tel:+918700061195">+91 8700061195</a>
+                </div>
+                <div class="contact-row-item">
+                    Mr. Karan Hora: <a href="tel:+919999919945">+91 9999919945</a>
+                </div>
+            </div>
+
+            <!-- Gulati Family -->
+            <div class="contact-col-card" id="contact-gulati-col">
+                <h4>Gulati Family (Bride's Side)</h4>
+                <div class="contact-row-item">
+                    Mr. Ajay Gulati: <a href="tel:+919997798798">+91 9997798798</a>
+                </div>
+                <div class="contact-row-item">
+                    Mrs. Indu Gulati: <a href="tel:+919897239739">+91 9897239739</a>
+                </div>
+                <div class="contact-row-item">
+                    Mr. Sanyam Gulati: <a href="tel:+917417893616">+91 7417893616</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION 8: PROMINENT FOOTER
+         ==================================================== -->
+    <footer>
+        <div class="footer-prominent-heading" id="footer-families-heading">
+            With warm regards &amp; blessings,<br>The Hora &amp; Gulati Families
+        </div>
+        <div style="font-family: 'Cormorant Garamond', 'Cinzel', serif; font-size: clamp(2.2em, 7vw, 3.2em); font-weight: 700; color: var(--gold-light); letter-spacing: 2px; margin: 16px 0 14px; text-shadow: 0 0 18px rgba(212, 175, 55, 0.55); text-transform: none;">
+            #ShubhKarYa
+        </div>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: clamp(1.05em, 3.5vw, 1.25em); color: rgba(255, 242, 181, 0.9); margin-top: 12px; font-weight: 500; letter-spacing: 1px;">
+            In the divine blessings of Lord Shiva &amp; Goddess Parvati
+        </p>
+    </footer>
+
+    <!-- ====================================================
+         MODAL: SHARE PERSONALIZED WHATSAPP E-INVITE
+         ==================================================== -->
+    <div class="host-modal" id="custom-link-modal">
+        <div class="host-modal-card">
+            <span class="host-modal-close" id="close-host-modal">&times;</span>
+            <h3 style="font-family: 'Cinzel', serif; font-size: 1.45em; color: var(--primary-maroon); margin-bottom: 4px;">
+                💌 Share Wedding e-Invite
+            </h3>
+            <p style="font-size: 0.88em; color: var(--text-muted); margin-bottom: 12px;">
+                Generate personalized WhatsApp invitations with your custom message &amp; invite link.
+            </p>
+
+            <div class="side-tabs-row">
+                <button class="side-tab-btn active" id="tab-gulati-side" onclick="selectSide('shreya')">
+                    👰 Shreya's Side (Gulati)
+                </button>
+                <button class="side-tab-btn" id="tab-hora-side" onclick="selectSide('karan')">
+                    🤵 Karan's Side (Hora)
+                </button>
+            </div>
+
+            <label class="form-label" for="custom-name-input">Guest or Family Name</label>
+            <input type="text" id="custom-name-input" class="form-input-field" placeholder="e.g. Sehaj, Sharma Family, Chacha Ji & Family" value="">
+
+            <div id="events-invited-for-group">
+                <label class="form-label" style="margin-top: 10px;">Events Invited For</label>
+                <div class="event-selection-row">
+                    <button type="button" class="event-tab-btn active" id="btn-events-all" onclick="selectEvents('all')">
+                        ✨ Option 1: All Three Events
+                    </button>
+                    <button type="button" class="event-tab-btn" id="btn-events-second" onclick="selectEvents('second')">
+                        💍 Option 2: Only Shaadi
+                    </button>
+                </div>
+            </div>
+
+            <label class="form-label" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; margin-bottom: 4px;">
+                <span>💬 WhatsApp Invitation Message (Customized Preview)</span>
+            </label>
+            <div class="wa-message-preview-box" id="wa-message-preview-box"></div>
+
+            <input type="hidden" id="custom-domain-input" value="https://shubhkaryawedding.vercel.app">
+
+            <!-- Primary Action: Direct Share on WhatsApp -->
+            <a href="#" target="_blank" class="wa-share-primary-btn" id="share-wa-link-btn">
+                <span>💬</span> Share Invite on WhatsApp
+            </a>
+
+            <!-- Secondary Actions: Copy Message or Copy Link -->
+            <div style="display: flex; gap: 8px;">
+                <button type="button" class="send-wishes-btn" style="flex: 1; padding: 11px 8px; font-size: 0.85em; background: #48060a;" id="copy-full-message-btn" onclick="copyFullMessage()" title="Copy entire WhatsApp message">
+                    📋 Copy Full Message
+                </button>
+                <button type="button" class="send-wishes-btn" style="flex: 1; padding: 11px 8px; font-size: 0.85em; background: #6b4028;" id="copy-guest-link-btn" title="Copy web link only">
+                    🔗 Copy Link Only
+                </button>
+            </div>
+
+            <div style="font-size: 0.78em; color: #777; text-align: center; margin-top: 10px;">
+                🌐 Link: <a id="link-preview-box" href="https://shubhkaryawedding.vercel.app/?KaranAndShreyaWeddingInviteFor=Sehaj" target="_blank" style="word-break: break-all; color: var(--primary-maroon); font-weight: 600; text-decoration: underline;" title="Tap to preview this link">https://shubhkaryawedding.vercel.app/?KaranAndShreyaWeddingInviteFor=Sehaj</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================
+         LIGHTBOX MODAL FOR FULL SCREEN VIEW (ZERO CROPPING)
+         ==================================================== -->
+    <div id="image-lightbox-modal" class="image-lightbox-modal" onclick="closeLightbox(event)">
+        <span class="lightbox-close-btn" onclick="closeLightboxDirect()">&times;</span>
+        <div class="lightbox-content-box" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Full View">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- ====================================================
+         JAVASCRIPT ENGINE: REVEAL ANIMATIONS, SCRATCH CARD,
+         SONG PLAYER, CUSTOM LINKS, AND CONFETTI
+         ==================================================== -->
+    <script>
+        // --- 0. LIGHTBOX FULL VIEW CONTROLLER ---
+        function openLightboxFromCard(cardEl) {
+            const img = cardEl.querySelector('.story-card-img');
+            const badgeEl = cardEl.querySelector('.story-chapter-badge');
+            const titleEl = cardEl.querySelector('.story-card-title');
+            if (!img) return;
+            let caption = "📸 Karan & Shreya";
+            if (badgeEl && badgeEl.textContent.trim()) {
+                const badgeTxt = badgeEl.textContent.trim();
+                const cleanBadge = badgeTxt.includes('•') ? badgeTxt.split('•').pop().trim() : badgeTxt;
+                caption = `📸 ${cleanBadge}`;
+            } else if (titleEl) {
+                caption = `📸 ${titleEl.textContent.trim()}`;
+            }
+            showLightbox(img.src, caption);
+        }
+
+        function openLightboxFromGallery(galleryEl) {
+            const img = galleryEl.querySelector('img');
+            if (!img) return;
+            showLightbox(img.src, img.alt || 'Karan & Shreya');
+        }
+
+        function showLightbox(src, caption) {
+            const modal = document.getElementById('image-lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            const modalCaption = document.getElementById('lightbox-caption');
+            if (!modal || !modalImg) return;
+            modalImg.src = src;
+            if (modalCaption) modalCaption.textContent = caption || '';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightboxDirect() {
+            const modal = document.getElementById('image-lightbox-modal');
+            if (modal) modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightbox(e) {
+            if (e.target.id === 'image-lightbox-modal') {
+                closeLightboxDirect();
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightboxDirect();
+        });
+
+        try {
+            sessionStorage.removeItem('last_wedding_guest_preview');
+            localStorage.removeItem('wedding_custom_guest_name');
+        } catch(e) {}
+
+        function safeDecode(str) {
+            if (!str) return "";
+            try {
+                return decodeURIComponent(str);
+            } catch (e) {
+                try {
+                    return unescape(str);
+                } catch (e2) {
+                    return str;
+                }
+            }
+        }
+
+        // --- 1. GUEST DATA EXTRACTOR & PERSONALIZATION ---
+        function getGuestInfo() {
+            let guest = "";
+            let side = "";
+            let events = "all";
+
+            const rawSearch = window.location.search || "";
+            const rawHash = window.location.hash || "";
+            const rawHref = window.location.href || "";
+
+            // 1. Try URLSearchParams first (handles URL encoding perfectly, including & in names)
+            try {
+                const params = new URLSearchParams(rawSearch);
+                for (const [k, v] of params.entries()) {
+                    const kClean = k.toLowerCase().replace(/['’]/g, '');
+                    const vClean = (v || '').trim();
+
+                    if (kClean.includes('weddinginvitefor') || kClean.includes('invitefor') || 
+                        kClean.includes('invite') || kClean.includes('guest') || 
+                        kClean.includes('to') || kClean.includes('for') ||
+                        (kClean.includes('shreya') && kClean.includes('wedding')) ||
+                        (kClean.includes('karan') && kClean.includes('wedding'))) {
+                        if (vClean) {
+                            guest = vClean;
+                            break;
+                        }
+                    }
+                }
+                if (!guest) {
+                    guest = params.get('ShreyaAndKaranWeddingInviteFor') ||
+                            params.get('KaranAndShreyaWeddingInviteFor') || 
+                            params.get('invitefor') || 
+                            params.get('weddinginvitefor') || 
+                            params.get('guest') || 
+                            params.get('to') || 
+                            params.get('name') || "";
+                }
+
+                // Extract side (shreya vs karan)
+                const sideParam = (params.get('side') || "").toLowerCase();
+                if (sideParam.includes('shreya') || sideParam.includes('gulati') || sideParam.includes('bride')) {
+                    side = 'shreya';
+                } else if (sideParam.includes('karan') || sideParam.includes('hora') || sideParam.includes('groom')) {
+                    side = 'karan';
+                }
+
+                // Extract events (all vs shaadi vs skip-haldi)
+                const evParam = (params.get('events') || params.get('event') || params.get('opt') || "").toLowerCase();
+                if (evParam.includes('shaadi') || evParam.includes('wedding')) {
+                    events = 'shaadi';
+                } else if (evParam.includes('skip-haldi') || evParam.includes('skiphaldi') || evParam.includes('nohaldi') || evParam.includes('no-haldi')) {
+                    events = 'skip-haldi';
+                }
+            } catch(e) {}
+
+            // 2. Regex fallback across raw and decoded URL strings
+            if (!guest) {
+                const regexPatterns = [
+                    /(?:shreya.*?karan.*?)?(?:'s|%27s|’s)?weddinginvitefor[=_:\-/ ]+([^&#?]+)/i,
+                    /(?:karan.*?shreya.*?)?(?:'s|%27s|’s)?weddinginvitefor[=_:\-/ ]+([^&#?]+)/i,
+                    /(?:shreyaandkaran|karanshreya|shreyakaran).*?invitefor[=_:\-/ ]+([^&#?]+)/i,
+                    /(?:karanandshreya).*?invitefor[=_:\-/ ]+([^&#?]+)/i,
+                    /[?&#](?:weddinginvitefor|invitefor|invite_for|guest_name|guest|invite|to|for|name)[=_:\-/ ]+([^&#?]+)/i
+                ];
+
+                for (const text of [rawSearch, rawHash, rawHref, safeDecode(rawHref)]) {
+                    if (guest) break;
+                    for (const rx of regexPatterns) {
+                        const match = rx.exec(text);
+                        if (match && match[1] && match[1].trim()) {
+                            guest = safeDecode(match[1].trim());
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Clean up formatting (+ to spaces, underscores to spaces, trim whitespace)
+            if (guest) {
+                guest = safeDecode(guest);
+                guest = guest.replace(/[+_]/g, ' ').replace(/\s+/g, ' ').trim();
+                guest = guest.replace(/^[=:\-_ ]+/, '').trim();
+                guest = guest.replace(/['"]+$/, '').trim();
+            }
+
+            // Fallback detection for side and events from full URL string
+            const hrefLower = rawHref.toLowerCase();
+            if (!side) {
+                if (hrefLower.includes('side=shreya') || hrefLower.includes('side=gulati') || 
+                    hrefLower.includes('side=bride') || hrefLower.includes('shreyaandkaran')) {
+                    side = 'shreya';
+                } else if (hrefLower.includes('side=karan') || hrefLower.includes('side=hora') || 
+                           hrefLower.includes('side=groom')) {
+                    side = 'karan';
+                } else {
+                    side = 'karan'; // Default
+                }
+            }
+
+            if (events === 'all') {
+                if (hrefLower.includes('events=shaadi') || hrefLower.includes('event=shaadi') || 
+                    hrefLower.includes('events=wedding') || hrefLower.includes('event=wedding')) {
+                    events = 'shaadi';
+                } else if (hrefLower.includes('events=skip-haldi') || hrefLower.includes('event=skip-haldi') ||
+                           hrefLower.includes('events=skiphaldi') || hrefLower.includes('event=skiphaldi') ||
+                           hrefLower.includes('skip-haldi') || hrefLower.includes('skiphaldi') ||
+                           hrefLower.includes('events=nohaldi') || hrefLower.includes('nohaldi')) {
+                    events = 'skip-haldi';
+                }
+            }
+
+            const finalGuest = guest || "Valued Guests";
+            return {
+                guest: finalGuest,
+                side: side.toLowerCase(),
+                events: events,
+                isCustom: Boolean(guest && guest !== "Valued Guests" && guest !== "Family & Friends")
+            };
+        }
+
+        function applyGuestInfo(info) {
+            const isBrideSide = (info.side === 'shreya' || info.side === 'gulati');
+            const isOnlyShaadi = (info.events === 'shaadi' || info.events === 'wedding');
+            const isSkipHaldi = (info.events === 'skip-haldi');
+            const guestName = info.guest || "Valued Guests";
+            let cleanSalutationName = guestName;
+            if (cleanSalutationName.toLowerCase().startsWith("respected ")) {
+                cleanSalutationName = cleanSalutationName.substring(10).trim();
+            }
+            
+            // 1. Welcome banner at top
+            const bannerGuestName = document.getElementById('banner-guest-name');
+            if (bannerGuestName) {
+                bannerGuestName.textContent = guestName;
+                if (info.isCustom) {
+                    bannerGuestName.style.color = '#ffdf80';
+                    bannerGuestName.style.textShadow = '0 0 16px rgba(255, 223, 128, 0.7)';
+                } else {
+                    bannerGuestName.style.color = '';
+                    bannerGuestName.style.textShadow = '';
+                }
+            }
+
+            // 2. Parchment inside the envelope: Respected [Guest / Family Name]
+            const cardSalutationName = document.getElementById('card-salutation-name');
+            if (cardSalutationName) {
+                cardSalutationName.textContent = info.isCustom ? cleanSalutationName : "Family & Friends";
+            }
+
+            // 3. Parchment Couple & Parents ordering:
+            // If Bride's side -> Shreya & her parents first, then Karan & his parents.
+            // If Groom's side -> Karan & his parents first, then Shreya & her parents.
+            const coupleBlock = document.getElementById('parchment-couple-details');
+            if (coupleBlock) {
+                if (isBrideSide) {
+                    coupleBlock.innerHTML = `
+                        <div class="couple-title-royale">Shreya Gulati</div>
+                        <div class="family-details-lines">
+                            Daughter of <strong>Mrs. Indu Gulati &amp; Mr. Ajay Gulati</strong><br>
+                            Sister of <strong>Sanyam Gulati</strong>
+                        </div>
+
+                        <div class="couple-and-ampersand">&amp;</div>
+
+                        <div class="couple-title-royale">Karan Hora</div>
+                        <div class="family-details-lines">
+                            Son of <strong>Mrs. Manju Hora &amp; Mr. Manoj Hora</strong><br>
+                            Brother of <strong>Manya Hora</strong>
+                        </div>
+                    `;
+                } else {
+                    coupleBlock.innerHTML = `
+                        <div class="couple-title-royale">Karan Hora</div>
+                        <div class="family-details-lines">
+                            Son of <strong>Mrs. Manju Hora &amp; Mr. Manoj Hora</strong><br>
+                            Brother of <strong>Manya Hora</strong>
+                        </div>
+
+                        <div class="couple-and-ampersand">&amp;</div>
+
+                        <div class="couple-title-royale">Shreya Gulati</div>
+                        <div class="family-details-lines">
+                            Daughter of <strong>Mrs. Indu Gulati &amp; Mr. Ajay Gulati</strong><br>
+                            Sister of <strong>Sanyam Gulati</strong>
+                        </div>
+                    `;
+                }
+            }
+
+            // Grandmothers' Blessings ordering:
+            const grandmothersBox = document.getElementById('grandmothers-honor-box');
+            if (grandmothersBox) {
+                if (isBrideSide) {
+                    grandmothersBox.innerHTML = `
+                        With divine blessings of our beloved Grandmothers:<br>
+                        <strong>Smt. Darshan Gulati &amp; Smt. Janki Devi Hora</strong>
+                    `;
+                } else {
+                    grandmothersBox.innerHTML = `
+                        With divine blessings of our beloved Grandmothers:<br>
+                        <strong>Smt. Janki Devi Hora &amp; Smt. Darshan Gulati</strong>
+                    `;
+                }
+            }
+
+            // 4. Section 2: Shiv Ji & Parvati Ji Sacred Union text:
+            const sacredText = document.getElementById('sacred-union-blessing-text');
+            if (sacredText) {
+                if (isBrideSide) {
+                    sacredText.innerHTML = "As Shakti completes Shiva, two souls unite in lifelong harmony, friendship, and divine grace. With Mahadev and Mata Gauri's blessings, Shreya &amp; Karan step into their holy union.";
+                } else {
+                    sacredText.innerHTML = "As Shakti completes Shiva, two souls unite in lifelong harmony, friendship, and divine grace. With Mahadev and Mata Gauri's blessings, Karan &amp; Shreya step into their holy union.";
+                }
+            }
+
+            // 5. Section 6: Our Story - Reorder Bride vs Groom cards:
+            const storyStack = document.getElementById('story-cards-container');
+            const cardGroom = document.getElementById('story-card-groom');
+            const cardBride = document.getElementById('story-card-bride');
+            if (storyStack && cardGroom && cardBride) {
+                if (isBrideSide) {
+                    // Put Bride first, Groom second
+                    storyStack.insertBefore(cardBride, cardGroom);
+                    const brideBadge = cardBride.querySelector('.story-chapter-badge');
+                    const groomBadge = cardGroom.querySelector('.story-chapter-badge');
+                    if (brideBadge) brideBadge.textContent = "01 • THE RADIANT BRIDE";
+                    if (groomBadge) groomBadge.textContent = "02 • THE DASHING GROOM";
+                } else {
+                    // Put Groom first, Bride second
+                    storyStack.insertBefore(cardGroom, cardBride);
+                    const groomBadge = cardGroom.querySelector('.story-chapter-badge');
+                    const brideBadge = cardBride.querySelector('.story-chapter-badge');
+                    if (groomBadge) groomBadge.textContent = "01 • THE DASHING GROOM";
+                    if (brideBadge) brideBadge.textContent = "02 • THE RADIANT BRIDE";
+                }
+            }
+
+            // 6. Section 4: Countdown text
+            const countdownSub = document.getElementById('countdown-wedding-subtext');
+            if (countdownSub) {
+                countdownSub.innerHTML = isBrideSide 
+                    ? "Until Shreya &amp; Karan tie the knot! 💍" 
+                    : "Until Karan &amp; Shreya tie the knot! 💍";
+            }
+
+            // 7. Section 5: Wedding Functions Visibility (Option 1: All vs Option 2: Skip Haldi / Only Shaadi)
+            const cardSagan = document.getElementById('card-sagan');
+            const cardHaldi = document.getElementById('card-haldi');
+            const cardShaadi = document.getElementById('card-shaadi');
+            const functionsGrid = document.getElementById('functions-grid-container');
+            const functionsHeadline = document.getElementById('functions-headline-text');
+            const functionsSubhead = document.getElementById('functions-subhead-text');
+
+            if (cardSagan && cardHaldi && cardShaadi) {
+                if (isOnlyShaadi) {
+                    cardSagan.style.display = 'none';
+                    cardHaldi.style.display = 'none';
+                    cardShaadi.style.display = 'block';
+                    if (functionsGrid) {
+                        functionsGrid.classList.add('single-event');
+                        functionsGrid.classList.remove('two-events');
+                    }
+                    if (functionsHeadline) functionsHeadline.textContent = "WEDDING CEREMONY";
+                    if (functionsSubhead) functionsSubhead.textContent = "Join us in celebrating our auspicious wedding ceremony";
+                } else if (isSkipHaldi) {
+                    cardSagan.style.display = 'block';
+                    cardHaldi.style.display = 'none';
+                    cardShaadi.style.display = 'block';
+                    if (functionsGrid) {
+                        functionsGrid.classList.remove('single-event');
+                        functionsGrid.classList.add('two-events');
+                    }
+                    if (functionsHeadline) functionsHeadline.textContent = "WEDDING FUNCTIONS";
+                    if (functionsSubhead) functionsSubhead.textContent = "Join us in celebrating these special milestones of our joyous journey";
+                } else {
+                    cardSagan.style.display = 'block';
+                    cardHaldi.style.display = 'block';
+                    cardShaadi.style.display = 'block';
+                    if (functionsGrid) {
+                        functionsGrid.classList.remove('single-event');
+                        functionsGrid.classList.remove('two-events');
+                    }
+                    if (functionsHeadline) functionsHeadline.textContent = "WEDDING FUNCTIONS";
+                    if (functionsSubhead) functionsSubhead.textContent = "Join us in celebrating each special milestone of our joyous journey";
+                }
+            }
+
+            // Update Calendar event titles for Bride's side
+            const calSagan = document.getElementById('cal-link-sagan');
+            const calHaldi = document.getElementById('cal-link-haldi');
+            const calShaadi = document.getElementById('cal-link-shaadi');
+            if (isBrideSide) {
+                if (calSagan) calSagan.href = calSagan.href.replace(/Karan\+%26\+Shreya/g, 'Shreya+%26+Karan').replace(/Karan\+and\+Shreya/g, 'Shreya\+and\+Karan');
+                if (calHaldi) calHaldi.href = calHaldi.href.replace(/Karan\+%26\+Shreya/g, 'Shreya+%26+Karan').replace(/Karan\+and\+Shreya/g, 'Shreya\+and\+Karan');
+                if (calShaadi) calShaadi.href = calShaadi.href.replace(/Karan\+%26\+Shreya/g, 'Shreya+%26+Karan').replace(/Karan\+and\+Shreya/g, 'Shreya\+and\+Karan');
+            } else {
+                if (calSagan) calSagan.href = calSagan.href.replace(/Shreya\+%26\+Karan/g, 'Karan+%26+Shreya').replace(/Shreya\+and\+Karan/g, 'Karan\+and\+Shreya');
+                if (calHaldi) calHaldi.href = calHaldi.href.replace(/Shreya\+%26\+Karan/g, 'Karan+%26+Shreya').replace(/Shreya\+and\+Karan/g, 'Karan\+and\+Shreya');
+                if (calShaadi) calShaadi.href = calShaadi.href.replace(/Shreya\+%26\+Karan/g, 'Karan+%26+Shreya').replace(/Shreya\+and\+Karan/g, 'Karan\+and\+Shreya');
+            }
+
+            // 8. Section 6: RSVP Form
+            const wishesNameInput = document.getElementById('wishes-name');
+            if (wishesNameInput) {
+                wishesNameInput.value = info.isCustom ? guestName : "";
+            }
+
+            const wishesSideSelect = document.getElementById('wishes-side');
+            if (wishesSideSelect) {
+                wishesSideSelect.value = isBrideSide ? "Gulati Family" : "Hora Family";
+            }
+
+            // Dual WhatsApp Quick Buttons:
+            const waDirectKaran = document.getElementById('wa-direct-karan');
+            const waDirectGulati = document.getElementById('wa-direct-gulati');
+            const dualStrip = document.getElementById('dual-wa-strip-container');
+            const encGuest = encodeURIComponent(guestName);
+
+            if (waDirectKaran) {
+                waDirectKaran.href = `https://api.whatsapp.com/send?phone=919999919945&text=Namaste%20Karan!%20${encGuest}%20joyfully%20accepts%20the%20wedding%20invitation.`;
+            }
+            if (waDirectGulati) {
+                waDirectGulati.href = `https://api.whatsapp.com/send?phone=918860744432&text=Namaste%20Gulati%20Family!%20${encGuest}%20joyfully%20accepts%20the%20wedding%20invitation.`;
+            }
+
+            if (dualStrip && waDirectGulati && waDirectKaran) {
+                if (isBrideSide) {
+                    dualStrip.insertBefore(waDirectGulati, waDirectKaran);
+                } else {
+                    dualStrip.insertBefore(waDirectKaran, waDirectGulati);
+                }
+            }
+
+            // 9. Section 7: Family Contacts ordering:
+            const contactsGrid = document.getElementById('contacts-grid-container');
+            const contactHora = document.getElementById('contact-hora-col');
+            const contactGulati = document.getElementById('contact-gulati-col');
+            if (contactsGrid && contactHora && contactGulati) {
+                if (isBrideSide) {
+                    contactsGrid.insertBefore(contactGulati, contactHora);
+                } else {
+                    contactsGrid.insertBefore(contactHora, contactGulati);
+                }
+            }
+
+            // 10. Section 8: Prominent Footer
+            const footerHeading = document.getElementById('footer-families-heading');
+            if (footerHeading) {
+                footerHeading.innerHTML = isBrideSide 
+                    ? "With warm regards &amp; blessings,<br>The Gulati &amp; Hora Families"
+                    : "With warm regards &amp; blessings,<br>The Hora &amp; Gulati Families";
+            }
+
+            // Page Title
+            document.title = isBrideSide 
+                ? "Shreya & Karan | Royal Wedding Invitation | #ShubhKarYa" 
+                : "Karan & Shreya | Royal Wedding Invitation | #ShubhKarYa";
+
+            // 11. Host Mode vs Guest Mode check:
+            const rawHref = safeDecode(window.location.href || "");
+            const isHostOverride = /[?&#](?:host|admin|create)[=_:\-/ ]*(?:1|true|yes)?/i.test(rawHref);
+
+            if (info.isCustom && !isHostOverride) {
+                document.body.classList.add('guest-mode');
+            } else {
+                document.body.classList.remove('guest-mode');
+            }
+        }
+
+        const guestInfo = getGuestInfo();
+        applyGuestInfo(guestInfo);
+
+        // --- 2. SONG PLAYER ("PEER VI TU" MP3 CHUNKS) ---
+        const audio = document.getElementById('wedding-audio-player');
+        const musicBtn = document.getElementById('music-circle-btn');
+        let isMusicPlaying = false;
+
+        function startSong() {
+            if (isMusicPlaying) return;
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isMusicPlaying = true;
+                    if (musicBtn) {
+                        musicBtn.classList.add('playing');
+                        musicBtn.innerHTML = "🔊";
+                    }
+                }).catch(() => {
+                    // Browser policy blocked unmuted autoplay; will resume on first touch/interaction
+                });
+            }
+        }
+
+        function pauseSong() {
+            audio.pause();
+            isMusicPlaying = false;
+            if (musicBtn) {
+                musicBtn.classList.remove('playing');
+                musicBtn.innerHTML = "🎵";
+            }
+        }
+
+        if (musicBtn) {
+            musicBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (isMusicPlaying) pauseSong();
+                else startSong();
+            });
+        }
+
+        // Auto-play by default whenever the website is opened
+        startSong();
+        window.addEventListener('load', startSong);
+        document.addEventListener('DOMContentLoaded', startSong);
+
+        // Immediate fallback: if browser policy requires a user gesture, start on first touch/scroll/click
+        const userInteractionEvents = ['click', 'touchstart', 'touchend', 'scroll', 'keydown'];
+        function triggerMusicOnFirstInteraction() {
+            startSong();
+            if (isMusicPlaying) {
+                userInteractionEvents.forEach(evt => window.removeEventListener(evt, triggerMusicOnFirstInteraction, { capture: true }));
+                userInteractionEvents.forEach(evt => document.removeEventListener(evt, triggerMusicOnFirstInteraction, { capture: true }));
+            }
+        }
+        userInteractionEvents.forEach(evt => window.addEventListener(evt, triggerMusicOnFirstInteraction, { passive: true, capture: true }));
+        userInteractionEvents.forEach(evt => document.addEventListener(evt, triggerMusicOnFirstInteraction, { passive: true, capture: true }));
+
+        // --- 2.5 WELCOME VIDEO BULLETPROOF AUTOPLAY & INFINITE LOOP CONTROLLER ---
+        const welcomeVid = document.getElementById('welcome-video');
+        if (welcomeVid) {
+            welcomeVid.muted = true;
+            welcomeVid.defaultMuted = true;
+            welcomeVid.playsInline = true;
+            welcomeVid.loop = true;
+            welcomeVid.setAttribute('muted', '');
+            welcomeVid.setAttribute('playsinline', '');
+            welcomeVid.setAttribute('webkit-playsinline', '');
+
+            const playWelcomeVid = () => {
+                const playPromise = welcomeVid.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {});
+                }
+            };
+
+            playWelcomeVid();
+            document.addEventListener('DOMContentLoaded', playWelcomeVid);
+            window.addEventListener('load', playWelcomeVid);
+
+            // Ensure it starts playing unconditionally on any user interaction if browser delayed it
+            ['touchstart', 'touchend', 'click', 'scroll'].forEach(evt => {
+                window.addEventListener(evt, () => {
+                    if (welcomeVid.paused) {
+                        playWelcomeVid();
+                    }
+                }, { passive: true });
+            });
+
+            // Guaranteed repeat / infinite loop
+            welcomeVid.addEventListener('ended', () => {
+                welcomeVid.currentTime = 0;
+                playWelcomeVid();
+            });
+
+            // Resume automatically when returning to tab
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && welcomeVid.paused) {
+                    playWelcomeVid();
+                }
+            });
+        }
+
+        // --- 3. WAX SEAL & ENVELOPE OPENING ANIMATION WITH CURTAIN REVEAL ---
+        const envelopeBox = document.getElementById('envelope-box');
+        const openEnvelopeBtn = document.getElementById('open-envelope-btn');
+        const waxSealTrigger = document.getElementById('wax-seal-trigger');
+        const revealedInvitation = document.getElementById('revealed-invitation');
+        const curtainOverlay = document.getElementById('curtain-reveal-overlay');
+        const curtainPlayer = document.getElementById('curtain-clip-player');
+        const skipCurtainBtn = document.getElementById('skip-curtain-clip-btn');
+        const curtainHintBtn = document.getElementById('curtain-hint-btn');
+        let isCardOpened = false;
+        let curtainTimer = null;
+
+        function revealCardContent() {
+            if (curtainTimer) {
+                clearTimeout(curtainTimer);
+                curtainTimer = null;
+            }
+            if (curtainOverlay) {
+                curtainOverlay.classList.remove('active');
+                setTimeout(() => {
+                    curtainOverlay.style.display = 'none';
+                    if (curtainPlayer) {
+                        try { curtainPlayer.pause(); } catch(e) {}
+                    }
+                }, 400);
+            }
+            isCardOpened = true;
+            if (envelopeBox) envelopeBox.classList.add('opened');
+            if (openEnvelopeBtn) openEnvelopeBtn.innerHTML = "✨ Fold Invitation";
+
+            // Explode celebration confetti
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 90,
+                    spread: 75,
+                    origin: { y: 0.6 },
+                    colors: ['#d4af37', '#fff2b5', '#9e1a22', '#ffdf80']
+                });
+            }
+
+            setTimeout(() => {
+                if (revealedInvitation) {
+                    revealedInvitation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 350);
+        }
+
+        function updateCurtainVideoSource() {
+            if (!curtainPlayer) return;
+            const isMobile = window.innerWidth <= 768;
+            const targetSrc = isMobile ? 'curtain-reveal-mobile.mp4' : 'curtain-reveal.mp4';
+            const targetPoster = isMobile ? 'curtain_v_couple.jpg' : 'curtain_reveal_couple.jpg';
+            if (!curtainPlayer.src || !curtainPlayer.src.includes(targetSrc)) {
+                curtainPlayer.src = targetSrc;
+                curtainPlayer.poster = targetPoster;
+                try { curtainPlayer.load(); } catch(e) {}
+            }
+        }
+        window.addEventListener('resize', () => {
+            if (curtainOverlay && !curtainOverlay.classList.contains('active')) {
+                updateCurtainVideoSource();
+            }
+        });
+        updateCurtainVideoSource();
+
+        function openInvitationCard() {
+            if (!isCardOpened) {
+                // Play wedding song
+                startSong();
+
+                // Show the royal theater curtain clip
+                if (curtainOverlay && curtainPlayer) {
+                    updateCurtainVideoSource();
+
+                    curtainOverlay.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        curtainOverlay.classList.add('active');
+                    });
+
+                    // Rewind and play clip
+                    curtainPlayer.currentTime = 0;
+                    const playPromise = curtainPlayer.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {
+                            // In case browser policy restricts video autoplay
+                        });
+                    }
+
+                    // Auto-advance when video ends or after safety timer (5.2s)
+                    curtainPlayer.onended = () => {
+                        revealCardContent();
+                    };
+                    curtainTimer = setTimeout(() => {
+                        revealCardContent();
+                    }, 5200);
+                } else {
+                    revealCardContent();
+                }
+            } else {
+                isCardOpened = false;
+                if (envelopeBox) envelopeBox.classList.remove('opened');
+                if (openEnvelopeBtn) openEnvelopeBtn.innerHTML = "💌 Open Invitation";
+            }
+        }
+
+        if (skipCurtainBtn) {
+            skipCurtainBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                revealCardContent();
+            });
+        }
+        if (curtainHintBtn) {
+            curtainHintBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                revealCardContent();
+            });
+        }
+        if (curtainOverlay) {
+            curtainOverlay.addEventListener('click', () => {
+                revealCardContent();
+            });
+        }
+        if (openEnvelopeBtn) openEnvelopeBtn.addEventListener('click', openInvitationCard);
+        if (waxSealTrigger) waxSealTrigger.addEventListener('click', openInvitationCard);
+
+        // --- 4. INTERACTIVE "SCRATCH TO REVEAL" DATE CANVAS ---
+        const scratchCanvas = document.getElementById('scratch-canvas');
+        if (scratchCanvas) {
+            const ctx = scratchCanvas.getContext('2d');
+            const container = scratchCanvas.parentElement;
+            
+            function resizeCanvas() {
+                scratchCanvas.width = container.offsetWidth;
+                scratchCanvas.height = container.offsetHeight;
+                initScratchCover();
+            }
+
+            function initScratchCover() {
+                // Paint luxury gold coin textured scratch surface
+                const grad = ctx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
+                grad.addColorStop(0, '#cda135');
+                grad.addColorStop(0.3, '#fae8a8');
+                grad.addColorStop(0.7, '#b38827');
+                grad.addColorStop(1, '#8f6815');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+
+                // Add decorative gold pattern & text
+                ctx.fillStyle = '#48060a';
+                ctx.font = 'bold 15px Cinzel, serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('✨ SCRATCH HERE ✨', scratchCanvas.width / 2, scratchCanvas.height / 2 + 5);
+            }
+
+            let isDrawing = false;
+            let scratchedPixels = 0;
+            let isRevealed = false;
+
+            function scratch(e) {
+                if (!isDrawing || isRevealed) return;
+                const rect = scratchCanvas.getBoundingClientRect();
+                const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+                const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(x, y, 24, 0, Math.PI * 2);
+                ctx.fill();
+
+                scratchedPixels++;
+                if (scratchedPixels > 25 && !isRevealed) {
+                    isRevealed = true;
+                    scratchCanvas.style.transition = 'opacity 0.6s ease';
+                    scratchCanvas.style.opacity = '0';
+                    setTimeout(() => { scratchCanvas.style.display = 'none'; }, 600);
+
+                    document.getElementById('scratch-status-text').innerHTML = "🎉 <strong>Wedding Date Revealed: 5th December 2026!</strong>";
+                    
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 60,
+                            spread: 60,
+                            origin: { y: 0.7 },
+                            colors: ['#d4af37', '#fdf6dc', '#a11720']
+                        });
+                    }
+                }
+            }
+
+            scratchCanvas.addEventListener('mousedown', () => isDrawing = true);
+            window.addEventListener('mouseup', () => isDrawing = false);
+            scratchCanvas.addEventListener('mousemove', scratch);
+
+            scratchCanvas.addEventListener('touchstart', (e) => { isDrawing = true; scratch(e); });
+            window.addEventListener('touchend', () => isDrawing = false);
+            scratchCanvas.addEventListener('touchmove', scratch);
+
+            // Double click / tap to instantly reveal
+            scratchCanvas.addEventListener('dblclick', () => {
+                isRevealed = true;
+                scratchCanvas.style.display = 'none';
+                document.getElementById('scratch-status-text').innerHTML = "🎉 <strong>Wedding Date Revealed: 5th December 2026!</strong>";
+            });
+
+            window.addEventListener('resize', resizeCanvas);
+            setTimeout(resizeCanvas, 100);
+        }
+
+        // --- 4.5 LIVE COUNTDOWN TIMER (DECEMBER 5, 2026, 18:00 IST) ---
+        function initWeddingCountdown() {
+            const targetTime = new Date("2026-12-05T18:00:00+05:30").getTime();
+            const daysEl = document.getElementById('countdown-days');
+            const hoursEl = document.getElementById('countdown-hours');
+            const minsEl = document.getElementById('countdown-mins');
+            const secsEl = document.getElementById('countdown-secs');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetTime - now;
+
+                if (distance <= 0) {
+                    if (daysEl) daysEl.textContent = "00";
+                    if (hoursEl) hoursEl.textContent = "00";
+                    if (minsEl) minsEl.textContent = "00";
+                    if (secsEl) secsEl.textContent = "00";
+                    const subtext = document.querySelector('.countdown-wedding-subtext');
+                    if (subtext) subtext.textContent = "The Wedding Celebrations Are Here! 🎉";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (daysEl) daysEl.textContent = days < 10 ? "0" + days : days;
+                if (hoursEl) hoursEl.textContent = hours < 10 ? "0" + hours : hours;
+                if (minsEl) minsEl.textContent = minutes < 10 ? "0" + minutes : minutes;
+                if (secsEl) secsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        initWeddingCountdown();
+
+        // --- 5. "SEND A WISH" & RSVP SUBMISSION ---
+        const wishesForm = document.getElementById('wedding-wishes-form');
+        if (wishesForm) {
+            wishesForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevents page reload
+
+                const name = document.getElementById('wishes-name').value;
+                const side = document.getElementById('wishes-side').value;
+                const attend = document.getElementById('wishes-attendance').value;
+                const msg = document.getElementById('wishes-text').value;
+
+                // Send background fetch if backend form handler is configured
+                try {
+                    fetch("/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(new FormData(wishesForm)).toString()
+                    }).catch(() => {});
+                } catch (err) {}
+
+                const isBrideSubmit = (side === 'Gulati Family');
+                const coupleWishText = isBrideSubmit ? "Shreya & Karan" : "Karan & Shreya";
+
+                const text = encodeURIComponent(
+                    `*Wedding Wish & RSVP for ${coupleWishText}* 💍\n#ShubhKarYa\n\n` +
+                    `👤 *From:* ${name}\n` +
+                    `🏛️ *To:* ${side}\n` +
+                    `🎉 *Attendance:* ${attend}\n` +
+                    `💌 *Wish:* ${msg || 'Wishing you infinite love and happiness!'}`
+                );
+
+                const waUrl = isBrideSubmit
+                    ? `https://api.whatsapp.com/send?phone=918860744432&text=${text}`
+                    : `https://api.whatsapp.com/send?phone=919999919945&text=${text}`;
+
+                window.open(waUrl, '_blank');
+
+                // Confetti celebration
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 70,
+                        spread: 60,
+                        origin: { y: 0.8 },
+                        colors: ['#d4af37', '#fff2b5', '#9e1a22']
+                    });
+                }
+
+                // Show confirmation state on button
+                const submitBtn = wishesForm.querySelector('.send-wishes-btn');
+                if (submitBtn) {
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = "✨ Wish & RSVP Sent on WhatsApp!";
+                    submitBtn.style.background = "#25D366";
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.style.background = "";
+                    }, 4000);
+                }
+            });
+        }
+
+        // --- 6. HOST CUSTOM INVITE LINK GENERATOR & WHATSAPP SHARING ---
+        let selectedSide = (typeof guestInfo !== 'undefined' && guestInfo && guestInfo.side === 'karan') ? 'karan' : 'shreya';
+        let selectedEvents = (typeof guestInfo !== 'undefined' && guestInfo && guestInfo.events) ? guestInfo.events : 'all';
+
+        const hostModal = document.getElementById('custom-link-modal');
+        const openHostBtn = document.getElementById('open-link-modal-btn');
+        const closeHostBtn = document.getElementById('close-host-modal');
+        const customNameInput = document.getElementById('custom-name-input');
+        const linkPreviewBox = document.getElementById('link-preview-box');
+        const copyGuestLinkBtn = document.getElementById('copy-guest-link-btn');
+        const shareWaLinkBtn = document.getElementById('share-wa-link-btn');
+        const tabGulati = document.getElementById('tab-gulati-side');
+        const tabHora = document.getElementById('tab-hora-side');
+
+        function selectSide(side) {
+            selectedSide = side;
+            const eventsGroup = document.getElementById('events-invited-for-group');
+            const btnAll = document.getElementById('btn-events-all');
+            const btnSecond = document.getElementById('btn-events-second') || document.getElementById('btn-events-shaadi');
+
+            if (side === 'shreya') {
+                if (tabGulati) tabGulati.classList.add('active');
+                if (tabHora) tabHora.classList.remove('active');
+                if (eventsGroup) eventsGroup.style.display = 'block';
+                if (btnAll) btnAll.innerHTML = "✨ Option 1: All Three Events";
+                if (btnSecond) btnSecond.innerHTML = "💍 Option 2: Only Shaadi";
+            } else {
+                if (tabHora) tabHora.classList.add('active');
+                if (tabGulati) tabGulati.classList.remove('active');
+                if (eventsGroup) eventsGroup.style.display = 'block';
+                if (btnAll) btnAll.innerHTML = "✨ Option 1: All Functions";
+                if (btnSecond) btnSecond.innerHTML = "🌿 Option 2: Skip Haldi";
+            }
+
+            if (selectedEvents === 'all') {
+                if (btnAll) btnAll.classList.add('active');
+                if (btnSecond) btnSecond.classList.remove('active');
+            } else {
+                selectedEvents = (side === 'shreya') ? 'shaadi' : 'skip-haldi';
+                if (btnSecond) btnSecond.classList.add('active');
+                if (btnAll) btnAll.classList.remove('active');
+            }
+            updateLinkPreview();
+        }
+
+        function selectEvents(eventsOpt) {
+            const btnAll = document.getElementById('btn-events-all');
+            const btnSecond = document.getElementById('btn-events-second') || document.getElementById('btn-events-shaadi');
+
+            if (eventsOpt === 'all') {
+                selectedEvents = 'all';
+                if (btnAll) btnAll.classList.add('active');
+                if (btnSecond) btnSecond.classList.remove('active');
+            } else {
+                selectedEvents = (selectedSide === 'shreya') ? 'shaadi' : 'skip-haldi';
+                if (btnSecond) btnSecond.classList.add('active');
+                if (btnAll) btnAll.classList.remove('active');
+            }
+            updateLinkPreview();
+        }
+
+        function getLiveDomain() {
+            // Live hosted Vercel domain as requested
+            const customInput = document.getElementById('custom-domain-input');
+            const defaultDomain = "https://shubhkaryawedding.vercel.app";
+            let domain = (customInput && customInput.value) ? customInput.value.trim() : defaultDomain;
+            return domain.replace(/\/+$/, '');
+        }
+
+        function updateLinkPreview() {
+            const rawVal = (customNameInput && customNameInput.value) ? customNameInput.value.trim() : "";
+            const guestVal = rawVal || "Valued Guests";
+            const baseUrl = getLiveDomain();
+            const encGuest = encodeURIComponent(guestVal);
+            
+            // Build URL with side, events, and personalized invite tag
+            let url = "";
+            if (selectedSide === 'shreya') {
+                if (selectedEvents === 'shaadi') {
+                    url = `${baseUrl}/?side=shreya&events=shaadi&ShreyaAndKaranWeddingInviteFor=${encGuest}`;
+                } else {
+                    url = `${baseUrl}/?side=shreya&events=all&ShreyaAndKaranWeddingInviteFor=${encGuest}`;
+                }
+            } else {
+                if (selectedEvents === 'skip-haldi') {
+                    url = `${baseUrl}/?side=karan&events=skip-haldi&KaranAndShreyaWeddingInviteFor=${encGuest}`;
+                } else {
+                    url = `${baseUrl}/?side=karan&events=all&KaranAndShreyaWeddingInviteFor=${encGuest}`;
+                }
+            }
+
+            if (linkPreviewBox) {
+                linkPreviewBox.textContent = url;
+                if (linkPreviewBox.tagName === 'A') linkPreviewBox.href = url;
+            }
+
+            let salutation = "Namaste 🙏";
+            if (rawVal) {
+                salutation = rawVal.toLowerCase().includes("family") || rawVal.toLowerCase().includes("ji") 
+                    ? `Namaste ${rawVal} 🙏` 
+                    : `Namaste ${rawVal} ji 🙏`;
+            }
+
+            let msg = "";
+            if (selectedSide === 'shreya') {
+                if (selectedEvents === 'shaadi') {
+                    msg = `${salutation}\n\nWith the divine blessings of Lord Shiva & Goddess Parvati, we cordially invite you and your family to celebrate the wedding ceremony of our daughter *Shreya* with *Karan* on Saturday, 5th December 2026! 💍✨\n\n#ShubhKarYa\n\nKindly view your personalized royal invitation card:\n${url}\n\nWarm regards,\nMrs. Indu & Mr. Ajay Gulati | Sanyam Gulati`;
+                } else {
+                    msg = `${salutation}\n\nWith the divine blessings of Lord Shiva & Goddess Parvati, we cordially invite you and your family to celebrate the wedding ceremonies of our daughter *Shreya* with *Karan*! 💍✨\n\n#ShubhKarYa\n\nKindly view your personalized royal invitation card:\n${url}\n\nWarm regards,\nMrs. Indu & Mr. Ajay Gulati | Sanyam Gulati`;
+                }
+            } else {
+                if (selectedEvents === 'skip-haldi') {
+                    msg = `${salutation}\n\nWith the divine blessings of Lord Shiva & Goddess Parvati, we cordially invite you and your family to celebrate the Sagan & Wedding celebrations of our son *Karan* with *Shreya*! 💍✨\n\n#ShubhKarYa\n\nKindly view your personalized royal invitation card:\n${url}\n\nWarm regards,\nMrs. Manju & Mr. Manoj Hora | Karan Hora`;
+                } else {
+                    msg = `${salutation}\n\nWith the divine blessings of Lord Shiva & Goddess Parvati, we cordially invite you and your family to celebrate the wedding ceremonies of our son *Karan* with *Shreya*! 💍✨\n\n#ShubhKarYa\n\nKindly view your personalized royal invitation card:\n${url}\n\nWarm regards,\nMrs. Manju & Mr. Manoj Hora | Karan Hora`;
+                }
+            }
+
+            if (shareWaLinkBtn) {
+                shareWaLinkBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+            }
+
+            const msgPreviewBox = document.getElementById('wa-message-preview-box');
+            if (msgPreviewBox) {
+                msgPreviewBox.textContent = msg;
+            }
+        }
+
+        // Initialize modal tabs and state
+        selectSide(selectedSide);
+
+        function copyFullMessage() {
+            const msgPreviewBox = document.getElementById('wa-message-preview-box');
+            const text = msgPreviewBox ? msgPreviewBox.textContent : "";
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copy-full-message-btn');
+                if (btn) {
+                    btn.textContent = "Copied! ✓";
+                    setTimeout(() => btn.textContent = "📋 Copy Full Message", 2000);
+                }
+            });
+        }
+
+        if (openHostBtn) {
+            openHostBtn.addEventListener('click', () => {
+                if (hostModal) {
+                    hostModal.classList.add('active');
+                    selectSide(selectedSide);
+                }
+            });
+        }
+        if (closeHostBtn && hostModal) {
+            closeHostBtn.addEventListener('click', () => hostModal.classList.remove('active'));
+        }
+        if (customNameInput) {
+            customNameInput.addEventListener('input', updateLinkPreview);
+        }
+
+        if (copyGuestLinkBtn) {
+            copyGuestLinkBtn.addEventListener('click', () => {
+                const url = linkPreviewBox ? linkPreviewBox.textContent.trim() : getLiveDomain();
+                navigator.clipboard.writeText(url).then(() => {
+                    copyGuestLinkBtn.textContent = "Copied! ✓";
+                    setTimeout(() => copyGuestLinkBtn.textContent = "🔗 Copy Link Only", 2000);
+                });
+            });
+        }
+
+        if (hostModal) {
+            hostModal.addEventListener('click', (e) => {
+                if (e.target === hostModal) {
+                    hostModal.classList.remove('active');
+                }
+            });
+        }
+
+        // --- 7. FLOATING GOLDEN PETALS PARTICLES CANVAS ---
+        const pCanvas = document.getElementById('petal-canvas');
+        if (pCanvas) {
+            const pCtx = pCanvas.getContext('2d');
+            let pW = pCanvas.width = window.innerWidth;
+            let pH = pCanvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                pW = pCanvas.width = window.innerWidth;
+                pH = pCanvas.height = window.innerHeight;
+            });
+
+            const petals = [];
+            const colors = ['#d4af37', '#fff2b5', '#e6ca65', '#9e1a22', '#ffdf80'];
+
+            for (let i = 0; i < 24; i++) {
+                petals.push({
+                    x: Math.random() * pW,
+                    y: Math.random() * pH,
+                    size: Math.random() * 6 + 4,
+                    speedY: Math.random() * 0.9 + 0.4,
+                    speedX: Math.random() * 0.6 - 0.3,
+                    rot: Math.random() * 360,
+                    rotSpeed: Math.random() * 2 - 1,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    alpha: Math.random() * 0.5 + 0.3
+                });
+            }
+
+            function animatePetals() {
+                pCtx.clearRect(0, 0, pW, pH);
+                for (let i = 0; i < petals.length; i++) {
+                    const p = petals[i];
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+                    p.rot += p.rotSpeed;
+
+                    if (p.y > pH) { p.y = -10; p.x = Math.random() * pW; }
+                    if (p.x > pW) p.x = 0;
+                    if (p.x < 0) p.x = pW;
+
+                    pCtx.save();
+                    pCtx.translate(p.x, p.y);
+                    pCtx.rotate((p.rot * Math.PI) / 180);
+                    pCtx.globalAlpha = p.alpha;
+                    pCtx.fillStyle = p.color;
+                    pCtx.beginPath();
+                    pCtx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
+                    pCtx.fill();
+                    pCtx.restore();
+                }
+                requestAnimationFrame(animatePetals);
+            }
+            animatePetals();
+        }
+    </script>
+</body>
+</html>
